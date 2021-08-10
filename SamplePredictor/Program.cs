@@ -3,24 +3,31 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using LabCognition.Interface;
-using LabCognition.Interface.Calibration;
 using CommandLine;
+using LC.Predictor;
+using LC.Runtime;
 
-namespace ConsoleApp1
+namespace SamplePredictor
 {
-    class Program
+    /// <summary>
+    /// This class contains the SamplePredictor client implementation 
+    /// which may be used in this or similar fashion by any 3rd party C# application.
+    /// </summary>
+    public class Program
     {
+        /// <summary>
+        /// This class contains the commandline options
+        /// </summary>
         public class Options
         {
-            [Value(0, Required = false, HelpText = "data files to predict", Default = new string[] { @"Data\Spec_Abs_Ech 03.txt" })]
-            public IEnumerable<string> Filenames { get; set; }
+            [Value(0, Required = false, HelpText = "Space separated file paths (*.txt) containing comma separated x,y data to predict", Default = null)]
+            public IEnumerable<string>? Filenames { get; set; }
 
-            [Option('m', Required = false, HelpText = "Filepath of the calibration model", Default = "Data\\CowMilkRange.calibration")]
-            public string ModelPath { get; set; }
+            [Option('m', Required = false, HelpText = "File path of the calibration model (*.calibration)", Default = null)]
+            public string? ModelPath { get; set; }
 
-            [Option('f', Required = true, HelpText = "Binary of the IPredictionEngineFactory implementation")]
-            public string PredictionEngineFactoryPath { get; set; }
+            [Option('f', Required = true, HelpText = "Prediction engine executable file implementing the LC.Predictor.IPredictorFactory interface")]
+            public string? PredictionEngineFactoryPath { get; set; }
         }
 
         static void Main(string[] args)
@@ -28,74 +35,163 @@ namespace ConsoleApp1
             try {
                 Parser.Default
                     .ParseArguments<Options>(args)
-                    .WithParsed((Options options) => { Predict(options.PredictionEngineFactoryPath, options.ModelPath, options.Filenames); });
+                    .WithParsed((Options options) => {
+                        // Create an instance of the prediction engine factory and load a calibration model
+                        IPredictor predictor = CreatePredictor(options.PredictionEngineFactoryPath, options.ModelPath);
+                        if (options.Filenames == null ||
+                            options.Filenames.Count() == 0)
+                        {
+                            // retrieve all possible results being returned when predicting data with the calibration model
+                            IPredictionResult[]? preview = predictor.GetResultPreview();
+
+                            // Show a preview of all prediction results for a given calibration model.
+                            Console.WriteLine(ResultsToString(preview, options.ModelPath));
+                            return;
+                        }
+
+                        // load the x,y data files
+                        var data = LoadData(options.Filenames);
+
+                        // Predict one or more files containing tab separated x,y data with the given calibration model.
+                        Console.WriteLine(GetPredictionReport(predictor, data));
+                    });
             } catch (Exception e) {
                 Console.WriteLine(e.Message);
             }
         }
 
-        private static void Predict(string factoryPath, string modelPath, IEnumerable<string> dataPaths)
+        public static IEnumerable<(string name, double[] x, double[] y)> LoadData(IEnumerable<string>? dataPaths)
         {
+            if (dataPaths != null)
+            {
+                foreach (var dataPath in dataPaths)
+                {
+                    if (!File.Exists(dataPath))
+                    {
+                        Console.WriteLine($"The file '{dataPath}' does not exist!");
+                        continue;
+                    }
+
+                    // load the data for the prediction
+                    (string name, double[] x, double[] y) data = ("", new double[0], new double[0]);
+                    try
+                    {
+                        data = LoadPredictionData(dataPath);
+                    }
+                    catch
+                    {
+                        Console.WriteLine($"The file '{dataPath}' failed to load!");
+                        continue;
+                    }
+
+                    yield return data;
+                }
+            }
+        }
+
+        private static string GetPredictionReport(IPredictor predictor, IEnumerable<(string name, double[] x, double[] y)> data)
+        {
+            if (data == null ||
+                data.Count() == 0)
+            {
+                return "No x,y data files loaded!";
+            }
+
+            var text = "";
+
+            // do a prediction for the passed in data files
+            foreach (var (name, x, y) in data)
+            {
+                // predict the data
+                IPredictionResult[]? results = predictor.Predict(x, y);
+
+                // create a plain text result output
+                text += ResultsToString(results, name) + "\r\n";
+            }
+
+            return text;
+        }
+
+        public static string ResultsToString(IPredictionResult[]? results, string? name)
+        {
+            if (results == null)
+            {
+                return "No results!\r\n";
+            }
+
+            var text = "";
+            if (name != null)
+            {
+                text += $"Results for: {name}\r\n";
+            }
+
+            text += $"Property\tValue [Unit]\tConstituent\r\n";
+            for (int r = 0; r < results.Length; r++)
+            {
+                text += ResultToString(results[r]) + "\r\n";
+            }
+
+            return text;
+        }
+
+        public static string ResultToString(IPredictionResult result)
+        {
+            string value = "None";
+            if (result == null)
+            {
+                return value;
+            }
+
+            // Format the result value according to the value type
+            if (result.GetValueType() == typeof(string))
+            {
+                value = (result as PredictionResult<string>)!.Value;
+            }
+            else if (result.GetValueType() == typeof(double))
+            {
+                value = (result as PredictionResult<double>)!.Value.ToString(CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                // other value types are not supported!
+                return value;
+            }
+
+            // append unit if any
+            if (!string.IsNullOrEmpty(result.Unit))
+            {
+                value += $" [{result.Unit}]";
+            }
+
+            // create formatted line output
+            return string.IsNullOrWhiteSpace(result.Constituent) ? 
+                $"{result.Property}\t{value}" :
+                $"{result.Property}\t{value}\t{result.Constituent}";
+        }
+
+
+        private static IPredictor CreatePredictor(string? factoryPath, string? modelPath)
+        {
+            if (factoryPath == null ||
+                string.IsNullOrWhiteSpace(factoryPath))
+            {
+                throw new ArgumentNullException($"The '{nameof(factoryPath)}' must not be null or empty!");
+            }
+
+            if (modelPath == null ||
+                string.IsNullOrWhiteSpace(modelPath))
+            {
+                throw new ArgumentNullException($"The '{nameof(modelPath)}' must not be null or empty!");
+            }
+
             // create the prediction engine factory
-            IPredictionEngineFactory factory = InstanceFactory<IPredictionEngineFactory>.Create(factoryPath);
+            var factory = InstanceFactory<IPredictorFactory>.Create(factoryPath);
 
             // load the prediction model via the factory
-            IPredictionEngine model = factory.FromFile(modelPath);
-
-            //do a prediction for the passed in data files
-            foreach (var dataPath in dataPaths) {
-                // load the data for the prediction
-                (string name, double[] x, double[] y) = LoadPredictionData(dataPath);
-
-                // check if engine supports the IPredictionEngineReport interface
-                if (model is IPredictionEngineReport predictionEngineReport) {
-                    // do the prediction
-                    (string Name, object[,] Data)[] reports = predictionEngineReport.Predict(name, x, y);
-
-                    foreach ((string Name, object[,] Data) in reports) {
-                        Console.WriteLine();
-                        Console.WriteLine(Name);
-                        WriteDataToConsole(Data);
-                    }
-                } else {
-                    // predict the data for all constituents and properties
-                    PredictAllConstituentsAndProperties(factory, model, x, y);
-                }
-            }
+            return factory.ReadModelFromFile(modelPath);
         }
 
-        private static void PredictAllConstituentsAndProperties(IPredictionEngineFactory factory, IPredictionEngine model, double[] x, double[] y)
-        {
-            // get the constituents and properties of the model
-            string[] constituents = model.GetConstituents();
-            string[] properties = model.GetProperties();
-
-            // do the prediction for all constituents and all properties
-            object[,] res = model.Predict(x, y, constituents, properties);
-
-            // write the results to the console
-            for (int c = 0; c < res.GetLength(0); c++) {
-                Console.WriteLine($"Results for {constituents[c]}");
-                for (int p = 0; p < res.GetLength(1); p++) {
-                    Console.WriteLine($"\t{properties[p]}={res[c, p]}");
-                }
-            }
-        }
-
-        private static void WriteDataToConsole(object[,] data)
-        {
-            for (int r = 0; r < data.GetLength(0); r++) {
-                string line = "";
-                for (int c = 0; c < data.GetLength(1); c++) {
-                    line += $"\t{data[r, c]}";
-                }
-
-                Console.WriteLine(line);
-            }
-        }
-
-
-        private static (string name, double[] x, double[] y) LoadPredictionData(string filename)
+        public static (string name, double[] x, double[] y) LoadPredictionData(string filename)
         {
             var data = LoadPredictionData();
 
@@ -104,18 +200,28 @@ namespace ConsoleApp1
 
             IEnumerable<(double x, double y)> LoadPredictionData()
             {
+                var lines = 1;
                 using (StreamReader sr = File.OpenText(filename)) {
-                    string s = sr.ReadLine();
+                    string? s = sr.ReadLine();
                     while (s != null) {
-                        string[] tok = s.Split("\t ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                        if (tok.Length > 1) {
+                        string[] tok = s.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                        if (tok.Length == 2) {
                             if (double.TryParse(tok[0], NumberStyles.Any, CultureInfo.InvariantCulture, out double x) &&
                                 double.TryParse(tok[1], NumberStyles.Any, CultureInfo.InvariantCulture, out double y)) {
                                 yield return (x, y);
                             }
+                            else
+                            {
+                                throw new InvalidDataException($"Invalid data format at position '{lines}'");
+                            }
+                        }
+                        else
+                        {
+                            throw new InvalidDataException($"Invalid data format at position '{lines}'");
                         }
 
                         s = sr.ReadLine();
+                        lines++;
                     }
                 }
             }

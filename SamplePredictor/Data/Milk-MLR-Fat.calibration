@@ -1,0 +1,631 @@
+<f80014af-1135-4d03-a32e-134f05313f35>
+  <Object Name="" Type="CalibrationModel" Version="1">
+    <guid type="guid">204d0de9-b7c8-413e-83c0-068944786fd3</guid>
+    <name type="string">Milk-MLR-Fat</name>
+    <description type="string">None</description>
+    <creationLocation type="string">qa</creationLocation>
+    <creator type="string">jf</creator>
+    <creationDate type="date">2021-08-03T13:40:02.4298729</creationDate>
+    <modificationDate type="date">2021-08-10T08:11:53.2056831</modificationDate>
+    <licenseKey type="string">
+    </licenseKey>
+    <projectFileName type="string">C:\temp\CowMilk Calibration Model_7.0.3\CowMilkRange_Cut.project</projectFileName>
+    <Object Name="calibration" Type="Calibration" Version="1">
+      <segmentNumber type="int32">-1</segmentNumber>
+      <excludedSpectraIndices type="System.Int32[]" length="0">
+      </excludedSpectraIndices>
+      <Object Name="statistics" Type="QuantifyStatistics" Version="1">
+        <Object Name="CalibrationResult" Type="CalibrationResult" Version="1">
+          <Object Name="x" Type="Statistics" Version="1">
+          </Object>
+          <Object Name="y" Type="Statistics" Version="1">
+          </Object>
+          <regressionCoefficients type="object[]" length="0">
+          </regressionCoefficients>
+          <Object Name="polynominalFit" Type="PolynominalFit" Version="1">
+            <PolynomOrder type="int32">1</PolynomOrder>
+            <DataOriginIsZero type="bool">false</DataOriginIsZero>
+            <ChiSquare type="double">NaN</ChiSquare>
+            <CorrelationCoefficient type="double">NaN</CorrelationCoefficient>
+            <TotalNumberOfCalibrationSpectra type="int32">0</TotalNumberOfCalibrationSpectra>
+          </Object>
+          <Object Name="multipleLinearRegression" Type="MultipleLinearRegression" Version="1">
+            <Object Name="regressionCoefficients" Type="Matrix" Version="1">
+              <Elements type="System.Double[][]" length="2">
+                <Item0 type="System.Double[]" length="1">62FE07D64005CA3F</Item0>
+                <Item1 type="System.Double[]" length="1">63FB129210F04540</Item1>
+              </Elements>
+            </Object>
+            <correlationCoefficient type="double">0.99969914891615241</correlationCoefficient>
+            <condition type="double">1</condition>
+          </Object>
+          <Object Name="DiscriminationCriteria" Type="DiscriminationCriteria" Version="1">
+            <constituentStatistics type="object[]" length="1">
+              <Object Name="Item0" Type="DiscriminationConstituentStatistics" Version="1">
+                <Object Name="constituent" Type="Constituent" Version="1">
+                  <color type="argb">-1741487328</color>
+                  <name type="string">Fat</name>
+                  <Object Name="discriminationLimits" Type="DiscriminationLimits" Version="1">
+                    <lowAlarmRange type="double">3</lowAlarmRange>
+                    <lowWarningRange type="double">2</lowWarningRange>
+                    <highWarningRange type="double">2</highWarningRange>
+                    <highAlarmRange type="double">3</highAlarmRange>
+                  </Object>
+                  <actual type="System.Double[]" length="13">5A643BDF4F8D014014AE47E17A1407401904560E2DB20C40F2D24D6210580C405EBA490C022B0C400E2DB29DEF2711408195438B6CE7134021B0726891ED1340DBF97E6ABCF41340508D976E12830C40F0A7C64B378901402FDD240681950140E5D022DBF97E0C40</actual>
+                  <Object Name="discriminationEnabledStatus" Type="DiscriminationStatus" Version="1">
+                    <predicted type="bool">true</predicted>
+                    <predictedFRatios type="bool">true</predictedFRatios>
+                    <predictedFTests type="bool">false</predictedFTests>
+                    <residuals type="bool">false</residuals>
+                    <leverages type="bool">false</leverages>
+                    <spectralResiduals type="bool">true</spectralResiduals>
+                    <spectralResidualFRatios type="bool">true</spectralResidualFRatios>
+                    <spectralResidualFTests type="bool">false</spectralResidualFTests>
+                    <mahalanobisDisctances type="bool">true</mahalanobisDisctances>
+                    <scoresX type="bool">true</scoresX>
+                    <scoresY type="bool">false</scoresY>
+                  </Object>
+                  <identificationStatistics type="object[]" length="0">
+                  </identificationStatistics>
+                  <Object Name="predictionParameter" Type="PredictionParameter" Version="1">
+                    <bias type="double">0</bias>
+                    <slope type="double">1</slope>
+                    <mahalanobisDistanceAccept type="double">0</mahalanobisDistanceAccept>
+                    <mahalanobisDistanceReject type="double">0</mahalanobisDistanceReject>
+                  </Object>
+                </Object>
+                <Object Name="predicted" Type="DiscriminationStatistics" Version="1">
+                  <minimum type="double">2.1719968101399192</minimum>
+                  <maximum type="double">5.0381203396022087</maximum>
+                  <name type="string">Predicted</name>
+                  <enabled type="bool">true</enabled>
+                  <mean type="double">3.5755384615384598</mean>
+                  <standardDeviation type="double">0.98607543757504346</standardDeviation>
+                  <variance type="double">0.97234476858881336</variance>
+                  <Object Name="limits" Type="DiscriminationLimits" Version="1">
+                    <lowAlarmRange type="double">2.0860131042560504</lowAlarmRange>
+                    <lowWarningRange type="double">2.1146743395506733</lowWarningRange>
+                    <highWarningRange type="double">5.0954428101914546</highWarningRange>
+                    <highAlarmRange type="double">5.1241040454860771</highAlarmRange>
+                  </Object>
+                </Object>
+                <Object Name="predictedFRatios" Type="DiscriminationStatistics" Version="1">
+                  <minimum type="double">0.325123404168276</minimum>
+                  <maximum type="double">1.9848808148927901</maximum>
+                  <name type="string">PredictedFRatios</name>
+                  <enabled type="bool">true</enabled>
+                  <mean type="double">1.0249335775980426</mean>
+                  <standardDeviation type="double">0.57574438631397284</standardDeviation>
+                  <variance type="double">0.33148159837205315</variance>
+                  <Object Name="limits" Type="DiscriminationLimits" Version="1">
+                    <lowAlarmRange type="double">0.27533068184654058</lowAlarmRange>
+                    <lowWarningRange type="double">0.29192825595378574</lowWarningRange>
+                    <highWarningRange type="double">2.01807596310728</highWarningRange>
+                    <highAlarmRange type="double">2.0346735372145255</highAlarmRange>
+                  </Object>
+                </Object>
+                <scoresX type="object[]" length="0">
+                </scoresX>
+                <scoresY type="object[]" length="0">
+                </scoresY>
+              </Object>
+            </constituentStatistics>
+          </Object>
+        </Object>
+        <Object Name="CalibrationSettings" Type="CalibrationSettings" Version="1">
+          <model type="enum" value="3">MLR</model>
+          <crossValidationMethod type="enum" value="0">None</crossValidationMethod>
+          <numberOfCrossValidationSegments type="int32">1</numberOfCrossValidationSegments>
+          <constituentLabelName type="string">
+          </constituentLabelName>
+          <centerData type="bool">false</centerData>
+          <scaleData type="bool">false</scaleData>
+          <leverageCorrectData type="bool">true</leverageCorrectData>
+          <maximalNumberOfFactors type="int32">1</maximalNumberOfFactors>
+          <polynomOrder type="int32">1</polynomOrder>
+          <dataOriginIsZero type="bool">false</dataOriginIsZero>
+          <showCalibrationDetailsInReport type="bool">true</showCalibrationDetailsInReport>
+          <showOutlierDetailsInPredictionReport type="bool">true</showOutlierDetailsInPredictionReport>
+          <numberOfDisplayedDecimalsX type="int32">4</numberOfDisplayedDecimalsX>
+          <numberOfDisplayedDecimalsY type="int32">8</numberOfDisplayedDecimalsY>
+          <resultUnit type="string">%</resultUnit>
+          <overfittingWarningLimit type="int32">0</overfittingWarningLimit>
+          <manualBackgroundNoiseCorrection type="bool">false</manualBackgroundNoiseCorrection>
+          <fullRange type="bool">false</fullRange>
+          <requiredNumberOfDataPoints type="int32">20</requiredNumberOfDataPoints>
+          <UnitX type="enum" value="13">Wavenumber</UnitX>
+          <UnitY type="enum" value="1">Absorbance</UnitY>
+          <outlierTestSettings type="object[]" length="0">
+          </outlierTestSettings>
+          <Object Name="requiredRange" Type="MinMaxD" Version="1">
+            <Min type="double">1739.477</Min>
+            <Max type="double">1754.905</Max>
+          </Object>
+          <Object Name="requiredCalibrationRange" Type="MinMaxD" Version="1">
+            <Min type="double">1708.621456183133</Min>
+            <Max type="double">1781.9031877351683</Max>
+          </Object>
+          <Object Name="intensityRange" Type="MinMaxD" Version="1">
+            <Min type="double">0.044870400056242946</Min>
+            <Max type="double">0.11019439995288849</Max>
+          </Object>
+          <preprocessingOperations type="object[]" length="0">
+          </preprocessingOperations>
+          <calibrationRanges type="object[]" length="1">
+            <Object Name="Item0" Type="MinMaxD" Version="1">
+              <Min type="double">1739.477</Min>
+              <Max type="double">1754.905</Max>
+            </Object>
+          </calibrationRanges>
+          <noiseRangesMLR type="object[]" length="1">
+            <Object Name="Item0" Type="MinMaxD" Version="1">
+              <Min type="double">1751.048</Min>
+              <Max type="double">1766.475</Max>
+            </Object>
+          </noiseRangesMLR>
+          <constituentRanges type="object[]" length="1">
+            <Object Name="Item0" Type="MinMaxD" Version="1">
+              <Min type="double">2.192</Min>
+              <Max type="double">4.989</Max>
+            </Object>
+          </constituentRanges>
+          <constituents type="object[]" length="1">
+            <Object Name="Item0" Type="Constituent" Version="1">
+              <color type="argb">-1741487328</color>
+              <name type="string">Fat</name>
+              <Object Name="discriminationLimits" Type="DiscriminationLimits" Version="1">
+                <lowAlarmRange type="double">3</lowAlarmRange>
+                <lowWarningRange type="double">2</lowWarningRange>
+                <highWarningRange type="double">2</highWarningRange>
+                <highAlarmRange type="double">3</highAlarmRange>
+              </Object>
+              <actual type="System.Double[]" length="13">5A643BDF4F8D014014AE47E17A1407401904560E2DB20C40F2D24D6210580C405EBA490C022B0C400E2DB29DEF2711408195438B6CE7134021B0726891ED1340DBF97E6ABCF41340508D976E12830C40F0A7C64B378901402FDD240681950140E5D022DBF97E0C40</actual>
+              <Object Name="discriminationEnabledStatus" Type="DiscriminationStatus" Version="1">
+                <predicted type="bool">true</predicted>
+                <predictedFRatios type="bool">true</predictedFRatios>
+                <predictedFTests type="bool">false</predictedFTests>
+                <residuals type="bool">false</residuals>
+                <leverages type="bool">false</leverages>
+                <spectralResiduals type="bool">true</spectralResiduals>
+                <spectralResidualFRatios type="bool">true</spectralResidualFRatios>
+                <spectralResidualFTests type="bool">false</spectralResidualFTests>
+                <mahalanobisDisctances type="bool">true</mahalanobisDisctances>
+                <scoresX type="bool">true</scoresX>
+                <scoresY type="bool">false</scoresY>
+              </Object>
+              <identificationStatistics type="object[]" length="0">
+              </identificationStatistics>
+              <Object Name="predictionParameter" Type="PredictionParameter" Version="1">
+                <bias type="double">0</bias>
+                <slope type="double">1</slope>
+                <mahalanobisDistanceAccept type="double">0</mahalanobisDistanceAccept>
+                <mahalanobisDistanceReject type="double">0</mahalanobisDistanceReject>
+              </Object>
+            </Object>
+          </constituents>
+          <groupAssignments type="System.String[]" length="0">
+          </groupAssignments>
+        </Object>
+        <Object Name="DescriptiveDataStatistics" Type="DescriptiveDataStatistics" Version="1">
+          <overallMean type="double">3.5755384615384611</overallMean>
+          <Object Name="standardDeviation" Type="Vector" Version="1">
+            <Elements type="System.Double[]" length="1">176A6336276DF03F</Elements>
+          </Object>
+          <Object Name="variance" Type="Vector" Version="1">
+            <Elements type="System.Double[]" length="1">91F86B1337DDF03F</Elements>
+          </Object>
+          <Object Name="skewness" Type="Vector" Version="1">
+            <Elements type="System.Double[]" length="1">F94C229589B4A63F</Elements>
+          </Object>
+          <Object Name="kurtosis" Type="Vector" Version="1">
+            <Elements type="System.Double[]" length="1">0AF171DFD5DFF0BF</Elements>
+          </Object>
+          <Object Name="mean" Type="Vector" Version="1">
+            <Elements type="System.Double[]" length="1">C92EAFE8B39A0C40</Elements>
+          </Object>
+          <Object Name="slope" Type="Vector" Version="1">
+            <Elements type="System.Double[]" length="1">E68E335412FBEF3F</Elements>
+          </Object>
+          <Object Name="offset" Type="Vector" Version="1">
+            <Elements type="System.Double[]" length="1">5CB3E74B279F613F</Elements>
+          </Object>
+          <Object Name="r2" Type="Vector" Version="1">
+            <Elements type="System.Double[]" length="1">028F335412FBEF3F</Elements>
+          </Object>
+        </Object>
+        <pressValues type="System.Double[]" length="2">C0B2D2A4145B6640D74E5192DD2A7F3F</pressValues>
+        <TotalNumberOfCalibrationSpectra type="int32">13</TotalNumberOfCalibrationSpectra>
+        <TotalNumberOfIntensities type="int32">1</TotalNumberOfIntensities>
+        <NumberOfUsedFactors type="int32">1</NumberOfUsedFactors>
+        <IsCalibrationResult type="bool">true</IsCalibrationResult>
+        <ObjectIDs type="System.String[]" length="13">
+          <Item0>a080f9dc-0caf-4e17-a321-114205a93268</Item0>
+          <Item1>faff54e2-c6f1-44bf-b82f-c85ce8d86b12</Item1>
+          <Item2>9b634fea-e6ed-4dba-8ab3-97fcbfffdbf8</Item2>
+          <Item3>0b295621-5cbd-41f7-9956-a503c0c373a9</Item3>
+          <Item4>c295c861-df82-4ccd-be95-bc549a3b3705</Item4>
+          <Item5>8bbd2fdc-27c6-43ab-8e75-19ade0297a1a</Item5>
+          <Item6>759a1faa-675e-460d-9c5b-5f6bfa636109</Item6>
+          <Item7>51916ce7-a40c-4da3-b99a-0606ad88ff39</Item7>
+          <Item8>5ba9ba8c-d9df-4779-8d22-edd4265e4b90</Item8>
+          <Item9>1bf3feb2-9ee3-4acd-87b2-11e06c9369db</Item9>
+          <Item10>750dd5e7-0a79-4dc7-94db-c1a7a13c3e1c</Item10>
+          <Item11>01f33cb8-2992-459e-b5e1-207f35ec7aff</Item11>
+          <Item12>bf194161-d8d6-42b8-af7e-a21bdd7f6d2b</Item12>
+        </ObjectIDs>
+        <FactorX type="object[]" length="0">
+        </FactorX>
+        <FactorY type="object[]" length="1">
+          <Object Name="Item0" Type="PredictionStatistics" Version="1">
+            <Object Name="press" Type="Vector" Version="1">
+              <Elements type="System.Double[]" length="1">D74E5192DD2A7F3F</Elements>
+            </Object>
+            <Object Name="leverages" Type="Matrix" Version="1">
+              <Elements type="System.Double[][]" length="1">
+                <Item0 type="System.Double[]" length="13">286405DB66BACC3FFE702A616A47BD3F5EB70605F7B1B33F0AB2BCB936B6B33F2F75D0A133C1B33F6AA54FF76E4BBD3F95074050088ECC3FD679B810B6FACD3FBEC4F8AAEF81CF3F07E8D25386B3B33F177381A612DBCC3F3BA0A26646CBCD3F76A7E90A63B9B33F</Item0>
+              </Elements>
+            </Object>
+            <Object Name="predicted" Type="Matrix" Version="1">
+              <Elements type="System.Double[][]" length="13">
+                <Item0 type="System.Double[]" length="1">95E8BF041AAE0140</Item0>
+                <Item1 type="System.Double[]" length="1">2A3D69EAA7190740</Item1>
+                <Item2 type="System.Double[]" length="1">AD793BC212B30C40</Item2>
+                <Item3 type="System.Double[]" length="1">A2BDD504365B0C40</Item3>
+                <Item4 type="System.Double[]" length="1">D166C9FF08290C40</Item4>
+                <Item5 type="System.Double[]" length="1">569C6C87730E1140</Item5>
+                <Item6 type="System.Double[]" length="1">51669E3B38BD1340</Item6>
+                <Item7 type="System.Double[]" length="1">4817B6E43CF11340</Item7>
+                <Item8 type="System.Double[]" length="1">989DAF0409271440</Item8>
+                <Item9 type="System.Double[]" length="1">59727214C8C50C40</Item9>
+                <Item10 type="System.Double[]" length="1">08AAE4A4AAA40140</Item10>
+                <Item11 type="System.Double[]" length="1">C78914DD3F600140</Item11>
+                <Item12 type="System.Double[]" length="1">F586942B79490C40</Item12>
+              </Elements>
+            </Object>
+            <Object Name="residuals" Type="Matrix" Version="1">
+              <Elements type="System.Double[][]" length="13">
+                <Item0 type="System.Double[]" length="1">801D42C2126590BF</Item0>
+                <Item1 type="System.Double[]" length="1">00583C8624B464BF</Item1>
+                <Item2 type="System.Double[]" length="1">0080B2AE7CB63CBF</Item2>
+                <Item3 type="System.Double[]" length="1">0080553F142D59BF</Item3>
+                <Item4 type="System.Double[]" length="1">00D03805C8904F3F</Item4>
+                <Item5 type="System.Double[]" length="1">00B89045167C993F</Item5>
+                <Item6 type="System.Double[]" length="1">009897D2271AA53F</Item6>
+                <Item7 type="System.Double[]" length="1">0038391BE25B6DBF</Item7>
+                <Item8 type="System.Double[]" length="1">80DE51184D26A9BF</Item8>
+                <Item9 type="System.Double[]" length="1">4042B97669ADA0BF</Item9>
+                <Item10 type="System.Double[]" length="1">0018021E59738BBF</Item10>
+                <Item11 type="System.Double[]" length="1">00B4298894A09A3F</Item11>
+                <Item12 type="System.Double[]" length="1">00F824C757C09A3F</Item12>
+              </Elements>
+            </Object>
+            <Object Name="biasedResiduals" Type="Matrix" Version="1">
+              <Elements type="System.Double[][]" length="13">
+                <Item0 type="System.Double[]" length="1">9E1F42C2126590BF</Item0>
+                <Item1 type="System.Double[]" length="1">EC683C8624B464BF</Item1>
+                <Item2 type="System.Double[]" length="1">6207B3AE7CB63CBF</Item2>
+                <Item3 type="System.Double[]" length="1">D9A1553F142D59BF</Item3>
+                <Item4 type="System.Double[]" length="1">4F8C3805C8904F3F</Item4>
+                <Item5 type="System.Double[]" length="1">E2B59045167C993F</Item5>
+                <Item6 type="System.Double[]" length="1">F19697D2271AA53F</Item6>
+                <Item7 type="System.Double[]" length="1">EC48391BE25B6DBF</Item7>
+                <Item8 type="System.Double[]" length="1">8FDF51184D26A9BF</Item8>
+                <Item9 type="System.Double[]" length="1">4F43B97669ADA0BF</Item9>
+                <Item10 type="System.Double[]" length="1">3B1C021E59738BBF</Item10>
+                <Item11 type="System.Double[]" length="1">E2B1298894A09A3F</Item11>
+                <Item12 type="System.Double[]" length="1">E2F524C757C09A3F</Item12>
+              </Elements>
+            </Object>
+            <Object Name="studentizedResiduals" Type="Matrix" Version="1">
+              <Elements type="System.Double[][]" length="13">
+                <Item0 type="System.Double[]" length="1">A4053E71114EEBBF</Item0>
+                <Item1 type="System.Double[]" length="1">432FC5452132BEBF</Item1>
+                <Item2 type="System.Double[]" length="1">835DC1C9DB1694BF</Item2>
+                <Item3 type="System.Double[]" length="1">03180E0CB29DB1BF</Item3>
+                <Item4 type="System.Double[]" length="1">535065083E17A63F</Item4>
+                <Item5 type="System.Double[]" length="1">D9E016E3F095F23F</Item5>
+                <Item6 type="System.Double[]" length="1">D0A3B416B48A0140</Item6>
+                <Item7 type="System.Double[]" length="1">253985069AC2C8BF</Item7>
+                <Item8 type="System.Double[]" length="1">CAFAE19DCE8B05C0</Item8>
+                <Item9 type="System.Double[]" length="1">7F721F757256F7BF</Item9>
+                <Item10 type="System.Double[]" length="1">B50AD1D26CE3E6BF</Item10>
+                <Item11 type="System.Double[]" length="1">15063664FD69F63F</Item11>
+                <Item12 type="System.Double[]" length="1">8A6F1B7B1DB8F23F</Item12>
+              </Elements>
+            </Object>
+            <Object Name="ssr" Type="Vector" Version="1">
+              <Elements type="System.Double[]" length="1">ABAA6F41ED472940</Elements>
+            </Object>
+            <Object Name="bias" Type="Vector" Version="1">
+              <Elements type="System.Double[]" length="1">C54EECC44EECE03C</Elements>
+            </Object>
+            <Object Name="r2" Type="Vector" Version="1">
+              <Elements type="System.Double[]" length="1">008F335412FBEF3F</Elements>
+            </Object>
+            <outlierTests type="object[]" length="2">
+              <Object Name="Item0" Type="FTest" Version="1">
+                <hypothesisType type="enum" value="3">TwoSided</hypothesisType>
+                <numeratorDegreesOfFreedom type="int32">1</numeratorDegreesOfFreedom>
+                <denominatorDegreesOfFreedom type="int32">12</denominatorDegreesOfFreedom>
+                <Object Name="testSettings" Type="TestSettings" Version="1">
+                  <method type="enum" value="0">FTest</method>
+                  <populationSource type="string">Residuals</populationSource>
+                  <alpha type="double">0.010000000000000009</alpha>
+                  <usedForOutlierDetection type="bool">false</usedForOutlierDetection>
+                  <confidenceRangeFactor type="double">3</confidenceRangeFactor>
+                  <testedPropertyType type="enum" value="1">Constituent</testedPropertyType>
+                  <enableCenteredSpectralResiduumCorrection type="bool">true</enableCenteredSpectralResiduumCorrection>
+                </Object>
+                <Object Name="populationStatistics" Type="PopulationStatistics" Version="1">
+                  <mean type="double">1.8788389647502649E-15</mean>
+                  <size type="int32">13</size>
+                  <standardError type="double">0.0067100732871272105</standardError>
+                  <variance type="double">0.00063410325955387244</variance>
+                  <Object Name="minMax" Type="MinMaxD" Version="1">
+                    <Min type="double">-0.049120339602208851</Min>
+                    <Max type="double">0.04121517606454006</Max>
+                  </Object>
+                </Object>
+                <testResultsKeys type="System.String[]" length="2">
+                  <Item0>FRatio</Item0>
+                  <Item1>FTest</Item1>
+                </testResultsKeys>
+                <testResultsValues type="object[]" length="2">
+                  <Object Name="Item0" Type="Matrix" Version="1">
+                    <Elements type="System.Double[][]" length="13">
+                      <Item0 type="System.Double[]" length="1">DF9424B548009FC2</Item0>
+                      <Item1 type="System.Double[]" length="1">059967420B9373C2</Item1>
+                      <Item2 type="System.Double[]" length="1">6BDF7E278D254BC2</Item2>
+                      <Item3 type="System.Double[]" length="1">F294B28187CD67C2</Item3>
+                      <Item4 type="System.Double[]" length="1">C813AAED02D85D42</Item4>
+                      <Item5 type="System.Double[]" length="1">1C76144B3A18A842</Item5>
+                      <Item6 type="System.Double[]" length="1">0E8B3B167EF3B342</Item6>
+                      <Item7 type="System.Double[]" length="1">7E63C60BEDC17BC2</Item7>
+                      <Item8 type="System.Double[]" length="1">4675B8FF1EC7B7C2</Item8>
+                      <Item9 type="System.Double[]" length="1">F77326E51189AFC2</Item9>
+                      <Item10 type="System.Double[]" length="1">CDEC96C809F499C2</Item10>
+                      <Item11 type="System.Double[]" length="1">389CE148C42CA942</Item11>
+                      <Item12 type="System.Double[]" length="1">A7A41902CC4AA942</Item12>
+                    </Elements>
+                  </Object>
+                  <Object Name="Item1" Type="Matrix" Version="1">
+                    <Elements type="System.Double[][]" length="13">
+                      <Item0 type="System.Double[]" length="1">0000000000000000</Item0>
+                      <Item1 type="System.Double[]" length="1">0000000000000000</Item1>
+                      <Item2 type="System.Double[]" length="1">0000000000000000</Item2>
+                      <Item3 type="System.Double[]" length="1">0000000000000000</Item3>
+                      <Item4 type="System.Double[]" length="1">000000000000F03F</Item4>
+                      <Item5 type="System.Double[]" length="1">000000000000F03F</Item5>
+                      <Item6 type="System.Double[]" length="1">000000000000F03F</Item6>
+                      <Item7 type="System.Double[]" length="1">0000000000000000</Item7>
+                      <Item8 type="System.Double[]" length="1">0000000000000000</Item8>
+                      <Item9 type="System.Double[]" length="1">0000000000000000</Item9>
+                      <Item10 type="System.Double[]" length="1">0000000000000000</Item10>
+                      <Item11 type="System.Double[]" length="1">000000000000F03F</Item11>
+                      <Item12 type="System.Double[]" length="1">000000000000F03F</Item12>
+                    </Elements>
+                  </Object>
+                </testResultsValues>
+                <calibrationTestResultKeys type="System.String[]" length="2">
+                  <Item0>FRatio</Item0>
+                  <Item1>FTest</Item1>
+                </calibrationTestResultKeys>
+                <calibrationTestResultValues type="object[]" length="2">
+                  <Object Name="Item0" Type="Matrix" Version="1">
+                    <Elements type="System.Double[][]" length="13">
+                      <Item0 type="System.Double[]" length="1">BE5557FB2EC6DA3F</Item0>
+                      <Item1 type="System.Double[]" length="1">386A45088CA5843F</Item1>
+                      <Item2 type="System.Double[]" length="1">C1E4965FD3D6333F</Item2>
+                      <Item3 type="System.Double[]" length="1">55828E13A0836E3F</Item3>
+                      <Item4 type="System.Double[]" length="1">A4F5DA71BFFA573F</Item4>
+                      <Item5 type="System.Double[]" length="1">A703292D7203F13F</Item5>
+                      <Item6 type="System.Double[]" length="1">381E818823970B40</Item6>
+                      <Item7 type="System.Double[]" length="1">D940F366CDC6943F</Item7>
+                      <Item8 type="System.Double[]" length="1">217325E290491640</Item8>
+                      <Item9 type="System.Double[]" length="1">58A05698081CFF3F</Item9>
+                      <Item10 type="System.Double[]" length="1">FBC661FF3992D23F</Item10>
+                      <Item11 type="System.Double[]" length="1">E3273A02ADB9F23F</Item11>
+                      <Item12 type="System.Double[]" length="1">B3C8037CDDEAF23F</Item12>
+                    </Elements>
+                  </Object>
+                  <Object Name="Item1" Type="Matrix" Version="1">
+                    <Elements type="System.Double[][]" length="13">
+                      <Item0 type="System.Double[]" length="1">F49643477215DE3F</Item0>
+                      <Item1 type="System.Double[]" length="1">68164F3FC80CB43F</Item1>
+                      <Item2 type="System.Double[]" length="1">C0A718F00BD88B3F</Item2>
+                      <Item3 type="System.Double[]" length="1">E0F216CF1167A83F</Item3>
+                      <Item4 type="System.Double[]" length="1">A0ED1248FA9A9E3F</Item4>
+                      <Item5 type="System.Double[]" length="1">1B463621B3ABE53F</Item5>
+                      <Item6 type="System.Double[]" length="1">8734072E182FED3F</Item6>
+                      <Item7 type="System.Double[]" length="1">101418CE4764BC3F</Item7>
+                      <Item8 type="System.Double[]" length="1">E3F31529ECD8EE3F</Item8>
+                      <Item9 type="System.Double[]" length="1">C0DB8DE0FFF7E93F</Item9>
+                      <Item10 type="System.Double[]" length="1">B0CD1970459AD93F</Item10>
+                      <Item11 type="System.Double[]" length="1">F600DC878861E63F</Item11>
+                      <Item12 type="System.Double[]" length="1">F3599AF4D474E63F</Item12>
+                    </Elements>
+                  </Object>
+                </calibrationTestResultValues>
+              </Object>
+              <Object Name="Item1" Type="FTest" Version="1">
+                <hypothesisType type="enum" value="3">TwoSided</hypothesisType>
+                <numeratorDegreesOfFreedom type="int32">1</numeratorDegreesOfFreedom>
+                <denominatorDegreesOfFreedom type="int32">12</denominatorDegreesOfFreedom>
+                <Object Name="testSettings" Type="TestSettings" Version="1">
+                  <method type="enum" value="0">FTest</method>
+                  <populationSource type="string">Predicted</populationSource>
+                  <alpha type="double">0.050000000000000044</alpha>
+                  <usedForOutlierDetection type="bool">false</usedForOutlierDetection>
+                  <confidenceRangeFactor type="double">5</confidenceRangeFactor>
+                  <testedPropertyType type="enum" value="1">Constituent</testedPropertyType>
+                  <enableCenteredSpectralResiduumCorrection type="bool">true</enableCenteredSpectralResiduumCorrection>
+                </Object>
+                <Object Name="populationStatistics" Type="PopulationStatistics" Version="1">
+                  <mean type="double">3.5755384615384598</mean>
+                  <size type="int32">13</size>
+                  <standardError type="double">0.27348811935787765</standardError>
+                  <variance type="double">1.0533734993045478</variance>
+                  <Object Name="minMax" Type="MinMaxD" Version="1">
+                    <Min type="double">2.1719968101399192</Min>
+                    <Max type="double">5.0381203396022087</Max>
+                  </Object>
+                </Object>
+                <testResultsKeys type="System.String[]" length="2">
+                  <Item0>FRatio</Item0>
+                  <Item1>FTest</Item1>
+                </testResultsKeys>
+                <testResultsValues type="object[]" length="2">
+                  <Object Name="Item0" Type="Matrix" Version="1">
+                    <Elements type="System.Double[][]" length="13">
+                      <Item0 type="System.Double[]" length="1">88C6573268C7E33F</Item0>
+                      <Item1 type="System.Double[]" length="1">0C6F5477AED7E93F</Item1>
+                      <Item2 type="System.Double[]" length="1">7CB270BDA10DF03F</Item2>
+                      <Item3 type="System.Double[]" length="1">48896E91F8B8EF3F</Item3>
+                      <Item4 type="System.Double[]" length="1">B9AFB3AED680EF3F</Item4>
+                      <Item5 type="System.Double[]" length="1">6FA53CDDCD14F33F</Item5>
+                      <Item6 type="System.Double[]" length="1">3BCA39C11915F63F</Item6>
+                      <Item7 type="System.Double[]" length="1">5EF15D454B4FF63F</Item7>
+                      <Item8 type="System.Double[]" length="1">7A2D26527A8BF63F</Item8>
+                      <Item9 type="System.Double[]" length="1">0E5A50AD1818F03F</Item9>
+                      <Item10 type="System.Double[]" length="1">D6883716DABCE33F</Item10>
+                      <Item11 type="System.Double[]" length="1">7F25AE145070E33F</Item11>
+                      <Item12 type="System.Double[]" length="1">FBACD4A920A5EF3F</Item12>
+                    </Elements>
+                  </Object>
+                  <Object Name="Item1" Type="Matrix" Version="1">
+                    <Elements type="System.Double[][]" length="13">
+                      <Item0 type="System.Double[]" length="1">00E82A2A23B2E13F</Item0>
+                      <Item1 type="System.Double[]" length="1">49A72562ADA1E33F</Item1>
+                      <Item2 type="System.Double[]" length="1">0821690C373DE53F</Item2>
+                      <Item3 type="System.Double[]" length="1">2CB2C8C25326E53F</Item3>
+                      <Item4 type="System.Double[]" length="1">0D5C4CE12119E53F</Item4>
+                      <Item5 type="System.Double[]" length="1">D52BDA741E85E63F</Item5>
+                      <Item6 type="System.Double[]" length="1">1D5D0177A496E73F</Item6>
+                      <Item7 type="System.Double[]" length="1">646F79BF9AA9E73F</Item7>
+                      <Item8 type="System.Double[]" length="1">9F73D237FABCE73F</Item8>
+                      <Item9 type="System.Double[]" length="1">B7C785990D42E53F</Item9>
+                      <Item10 type="System.Double[]" length="1">94C8027659AEE13F</Item10>
+                      <Item11 type="System.Double[]" length="1">0349A8DCAF92E13F</Item11>
+                      <Item12 type="System.Double[]" length="1">7F243D4EAC21E53F</Item12>
+                    </Elements>
+                  </Object>
+                </testResultsValues>
+                <calibrationTestResultKeys type="System.String[]" length="2">
+                  <Item0>FRatio</Item0>
+                  <Item1>FTest</Item1>
+                </calibrationTestResultKeys>
+                <calibrationTestResultValues type="object[]" length="2">
+                  <Object Name="Item0" Type="Matrix" Version="1">
+                    <Elements type="System.Double[][]" length="13">
+                      <Item0 type="System.Double[]" length="1">ADA46C253190D53F</Item0>
+                      <Item1 type="System.Double[]" length="1">9CAAFF6540C7E23F</Item1>
+                      <Item2 type="System.Double[]" length="1">4FF858C7C6C6ED3F</Item2>
+                      <Item3 type="System.Double[]" length="1">600EC7B3DA03ED3F</Item3>
+                      <Item4 type="System.Double[]" length="1">75E7939DE895EC3F</Item4>
+                      <Item5 type="System.Double[]" length="1">1CBE8E65E7BAF53F</Item5>
+                      <Item6 type="System.Double[]" length="1">1EDA6FC4F343FE3F</Item6>
+                      <Item7 type="System.Double[]" length="1">36E81EC52BFEFE3F</Item7>
+                      <Item8 type="System.Double[]" length="1">00C2A66212C2FF3F</Item8>
+                      <Item9 type="System.Double[]" length="1">A4655B5EADF0ED3F</Item9>
+                      <Item10 type="System.Double[]" length="1">122939FE8E78D53F</Item10>
+                      <Item11 type="System.Double[]" length="1">AC480465D2CED43F</Item11>
+                      <Item12 type="System.Double[]" length="1">5E7C27C2DFDCEC3F</Item12>
+                    </Elements>
+                  </Object>
+                  <Object Name="Item1" Type="Matrix" Version="1">
+                    <Elements type="System.Double[][]" length="13">
+                      <Item0 type="System.Double[]" length="1">003C39E8A45EDB3F</Item0>
+                      <Item1 type="System.Double[]" length="1">C494391B5754E13F</Item1>
+                      <Item2 type="System.Double[]" length="1">86A64697F0ADE43F</Item2>
+                      <Item3 type="System.Double[]" length="1">21E87998BD7CE43F</Item3>
+                      <Item4 type="System.Double[]" length="1">83FAB5F97060E43F</Item4>
+                      <Item5 type="System.Double[]" length="1">3DBE39EFCB78E73F</Item5>
+                      <Item6 type="System.Double[]" length="1">809E5DAB7CC9E93F</Item6>
+                      <Item7 type="System.Double[]" length="1">E07D4059ADF1E93F</Item7>
+                      <Item8 type="System.Double[]" length="1">0D3D19638D1AEA3F</Item8>
+                      <Item9 type="System.Double[]" length="1">22B48F6A5BB8E43F</Item9>
+                      <Item10 type="System.Double[]" length="1">54CACC315651DB3F</Item10>
+                      <Item11 type="System.Double[]" length="1">108FE5839BF0DA3F</Item11>
+                      <Item12 type="System.Double[]" length="1">4A6A8CDAC072E43F</Item12>
+                    </Elements>
+                  </Object>
+                </calibrationTestResultValues>
+              </Object>
+            </outlierTests>
+          </Object>
+        </FactorY>
+        <Object Name="quantitativeModelStatistics" Type="QuantitativeModelStatistics" Version="1">
+          <Object Name="descriptiveModelStatistics" Type="DescriptiveModelStatistics" Version="1">
+            <Object Name="sec" Type="Matrix" Version="1">
+              <Elements type="System.Double[][]" length="1">
+                <Item0 type="System.Double[]" length="1">7E4BBA68AEEE9A3F</Item0>
+              </Elements>
+            </Object>
+            <Object Name="sep" Type="Matrix" Version="1">
+              <Elements type="System.Double[][]" length="1">
+                <Item0 type="System.Double[]" length="1">686493312FC6983F</Item0>
+              </Elements>
+            </Object>
+            <Object Name="rmsep" Type="Matrix" Version="1">
+              <Elements type="System.Double[][]" length="1">
+                <Item0 type="System.Double[]" length="1">686493312FC6983F</Item0>
+              </Elements>
+            </Object>
+            <Object Name="rmsec" Type="Matrix" Version="1">
+              <Elements type="System.Double[][]" length="1">
+                <Item0 type="System.Double[]" length="1">7E4BBA68AEEE9A3F</Item0>
+              </Elements>
+            </Object>
+            <Object Name="rSquared" Type="Matrix" Version="1">
+              <Elements type="System.Double[][]" length="1">
+                <Item0 type="System.Double[]" length="1">038F335412FBEF3F</Item0>
+              </Elements>
+            </Object>
+            <Object Name="bias" Type="Matrix" Version="1">
+              <Elements type="System.Double[][]" length="1">
+                <Item0 type="System.Double[]" length="1">C54EECC44EECE03C</Item0>
+              </Elements>
+            </Object>
+          </Object>
+          <Object Name="fratio" Type="Matrix" Version="1">
+            <Elements type="System.Double[][]" length="1">
+              <Item0 type="System.Double[]" length="1">000000000000F03F</Item0>
+            </Elements>
+          </Object>
+          <Object Name="ftest" Type="Matrix" Version="1">
+            <Elements type="System.Double[][]" length="1">
+              <Item0 type="System.Double[]" length="1">D31800000000E03F</Item0>
+            </Elements>
+          </Object>
+          <Object Name="press" Type="Matrix" Version="1">
+            <Elements type="System.Double[][]" length="1">
+              <Item0 type="System.Double[]" length="1">D74E5192DD2A7F3F</Item0>
+            </Elements>
+          </Object>
+        </Object>
+      </Object>
+    </Object>
+  </Object>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <Reference URI="">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+        <DigestValue>1pSPcjaDOyGEc+b6Jli86bJi9IfDGZjuL+pfVhnIG5g=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>fIv8O4NvmP7Z0Lxb0ou+ooxs/s5xaqTJQJfd0EB0WVbfw4fu4RDY54ofv1CkfZWzivOfGnrL0d9WgWX6YdCg8+S8bMRmvjEoJB8arR/gEQFczvDJlN99rpvOVXWENZoX89Y4v9mLTSzlWF2MXVjgE2ZqB30hPZSPduH62RdNlJE=</SignatureValue>
+    <KeyInfo>
+      <KeyValue>
+        <RSAKeyValue>
+          <Modulus>7zfMXK9aWbLWSmRL9n4l8ZcE/6M6eADjirVAvINCW/JiH2E5+JDZ6757sWTiz0SETEI5BOzoLMd6tCiM7sk2MjUaHaxCbyYsuFVvqNLQmsPhMIzoWMarxgxJITta37NP1gC0v4B0vQ+oZCfNLl7dZL5aWHzfN+pX+6O4GNChfP8=</Modulus>
+          <Exponent>AQAB</Exponent>
+        </RSAKeyValue>
+      </KeyValue>
+    </KeyInfo>
+  </Signature>
+</f80014af-1135-4d03-a32e-134f05313f35>
