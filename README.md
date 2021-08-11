@@ -234,7 +234,7 @@ One data point must be given per line followed by a carriage return line feed
 Please also have a look at the enclosed *\*.txt* files in the ***SamplePredictor\\Data\\*** folder.
 
 
-# Sientific Background
+# Scientific Background
 Multivariate data analysis is offering powerful mathematical methods for
 predicting physical properties from spectroscopic data rather than gathering
 such information from laboratory wet chemistry sample analysis.
